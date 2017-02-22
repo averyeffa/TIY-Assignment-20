@@ -1,10 +1,12 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
-import {RadioCollectionOne, RadioCollectionTwo} from './_models.js';
-import {ArtistListingView} from './_views.js';
+import {RadioModel, RadioCollectionOne, RadioCollectionTwo} from './_models.js';
+import {ArtistListingView, NavView} from './_views.js';
 
 const AppRouter = Backbone.Router.extend({
 	initialize: function(){
+		let navViewInstance = new NavView()
+			navViewInstance.render()
 		Backbone.history.start()
 	},
 
@@ -17,11 +19,11 @@ const AppRouter = Backbone.Router.extend({
 
 
 
-	showHomepage: function(){
+	showHomePage: function(){
 		// console.log(isthisthingon)
 		let articleContainerEl = document.querySelector('.article_content')
 			articleContainerEl.innerHTML = `<div><p>HELLOOOOO</p></div>`
-},
+		},
 
 
 
@@ -33,8 +35,10 @@ const AppRouter = Backbone.Router.extend({
 
 		radioCollectionOne.fetch().then(function(serverRes){
 			let modelsListOne = radioCollectionOne.models
-			let outputHtmlStr = playlistHtmlTemplate(modelsListOne, "Radio1")
-			articleContainerEl.innerHTML = outputHtmlStr
+			let viewInstance = new ArtistListingView()
+			viewInstance.render(radioCollectionOne)
+			// let outputHtmlStr = playlistHtmlTemplate(modelsListOne, "Radio1")
+			// articleContainerEl.innerHTML = outputHtmlStr
 		})
 },
 
@@ -47,8 +51,10 @@ showRadioTwo: function(){
 
 	radioCollectionTwo.fetch().then(function(serverRes){
 		let modelsListTwo = radioCollectionTwo.models
-		let outputHtmlStr = playlistHtmlTemplate(modelsListTwo, "Radio2")
-		articleContainerEl.innerHTML = outputHtmlStr
+		let viewInstance = new ArtistListingView()
+		viewInstance.render(radioCollectionTwo)
+		// let outputHtmlStr = playlistHtmlTemplate(modelsListTwo, "Radio2")
+		// articleContainerEl.innerHTML = outputHtmlStr
 	})
 },
 })

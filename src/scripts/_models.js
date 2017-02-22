@@ -1,4 +1,6 @@
 import Backbone from 'backbone';
+import $ from 'jquery'
+
 
 export const RadioModel = Backbone.Model.extend({
 })
@@ -19,6 +21,7 @@ export const RadioCollectionOne = Backbone.Collection.extend({
 						outputArrayObjOne.push(artistObj)
 						// console.log(outputArrayObjOne)
 					})
+					console.log(outputArrayObjOne)
 		}
 		return outputArrayObjOne
 	},
@@ -46,6 +49,7 @@ export const RadioCollectionTwo = Backbone.Collection.extend({
 					})
 		}
 		return outputArrayObjTwo
+		// console.log(outputArrayObjTwo)
 	},
 	url: '/proxy?api=http://www.bbc.co.uk/radio2/playlist.json',
 	model: RadioModel
