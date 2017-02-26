@@ -21,7 +21,7 @@ export const RadioCollectionOne = Backbone.Collection.extend({
 						outputArrayObjOne.push(artistObj)
 						// console.log(outputArrayObjOne)
 					})
-					console.log(outputArrayObjOne)
+					// console.log(outputArrayObjOne)
 		}
 		return outputArrayObjOne
 	},
@@ -52,5 +52,16 @@ export const RadioCollectionTwo = Backbone.Collection.extend({
 		// console.log(outputArrayObjTwo)
 	},
 	url: '/proxy?api=http://www.bbc.co.uk/radio2/playlist.json',
+	model: RadioModel
+})
+
+export const RadioCollectionIntro = Backbone.Collection.extend({
+	initialize: function(){
+	},
+	parse: function(serverRes){
+		// console.log(serverRes)
+		return serverRes.playlist.introducing
+	},
+	url: '/proxy?api=http://www.bbc.co.uk/radio1/playlist.json',
 	model: RadioModel
 })

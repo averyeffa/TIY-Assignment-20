@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
-import {RadioModel, RadioCollectionOne, RadioCollectionTwo} from './_models.js';
+import {RadioModel, RadioCollectionOne, RadioCollectionTwo, RadioCollectionIntro} from './_models.js';
 import {ArtistListingView, NavView} from './_views.js';
 
 const AppRouter = Backbone.Router.extend({
@@ -22,8 +22,18 @@ const AppRouter = Backbone.Router.extend({
 	showHomePage: function(){
 		// console.log(isthisthingon)
 		let articleContainerEl = document.querySelector('.article_content')
-			articleContainerEl.innerHTML = `<div><p>HELLOOOOO</p></div>`
-		},
+
+		let radioCollectionIntro =  new RadioCollectionIntro()
+
+		radioCollectionIntro.fetch().then(function(serverRes){
+			let modelsListIntro = radioCollectionIntro.models
+			let viewInstance = new ArtistListingView()
+			viewInstance.render(radioCollectionIntro)
+					// let outputHtmlStr = playlistHtmlTemplate(modelsListOne, "Radio1")
+					// articleContainerEl.innerHTML = outputHtmlStr
+		})
+},
+
 
 
 

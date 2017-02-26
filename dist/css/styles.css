@@ -1,10 +1,38 @@
 body {
-  background: purple; }
+  background: #000;
+  font-family: 'Yanone Kaffeesatz', sans-serif; }
+
+#app-container {
+  text-align: center; }
+
+.header {
+  background-image: url("http://hdwallpaperia.com/wp-content/uploads/2013/11/Music-Backgrounds-Wallpaper.jpg");
+  background-size: cover;
+  height: 260px; }
+
+.header img {
+  height: 220px;
+  margin-top: 20px; }
+
+.tabcontent_list {
+  width: 100%;
+  background-color: #B17A36;
+  color: #fff;
+  font-size: 24px; }
+
+.tabcontent_tab {
+  margin-left: 5%;
+  margin-right: 5%; }
 
 h2 {
-  color: red; }
+  font-size: 48px;
+  color: #FFFEAA;
+  margin-top: 36px;
+  margin-bottom: 4px; }
 
-h3 {
-  color: green; }
+p {
+  color: #8F9EAA;
+  margin-top: 0px;
+  font-size: 20px; }
 
 /*# sourceMappingURL=styles.css.map*/

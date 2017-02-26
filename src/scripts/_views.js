@@ -52,7 +52,7 @@ export const NavView = Backbone.View.extend({
   navBarHtmlTemplate: function(){
     return `
     <div class="tabcontent_list">
-      <span class="tabcontent_tab active" data-route="">Home</span>
+      <span class="tabcontent_tab" data-route=" ">Home</span>
       <span class="tabcontent_tab" data-route="radio/1">Our #1 Playlist</span>
       <span class="tabcontent_tab" data-route="radio/2" >Our #2 Playlist</span>
     </div>
